@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/hotelImage"
+            android:src="@drawable/hotel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"/>
+        <ImageView
+            android:src="@drawable/ic_favorite_border_white_24dp"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"/>
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardContent"
+        android:layout_below="@+id/cardImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/nameHotel"
+            android:text="Goa Marriott Resot and Spa"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0037ff"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/priceHotel"
+            android:layout_gravity="right|center"
+            android:text="30$"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/addrHotel"
+            android:layout_marginTop="35dp"
+            android:text="Candolim, Goa"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginLeft="11dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/detailsHotel"
+            android:layout_marginTop="60dp"
+            android:text="2 Bedrooms | 4 Guests"
+            android:textStyle="bold"
+            android:layout_marginLeft="11dp"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_gravity="right"
+            android:text="per night"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

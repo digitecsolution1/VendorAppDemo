@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/tab_account"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="Accounts" />
+        <item
+            android:id="@+id/tab_details"
+            android:icon="@drawable/ic_book_black_24dp"
+            android:title="Customer Details" />
+        <item
+            android:id="@+id/tab_coupons"
+            android:icon="@drawable/ic_work_black_24dp"
+            android:title="Coupons" />
+
+</menu>

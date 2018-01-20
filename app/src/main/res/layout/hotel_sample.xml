@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/container"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:id="@+id/scroll"
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="570dp">
+
+        <RelativeLayout
+            android:id="@+id/first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imagehotel"
+                android:src="@drawable/hotel"
+                android:adjustViewBounds="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/hotelName"
+                android:layout_below="@+id/imagehotel"
+                android:textStyle="bold"
+                android:text="Taj Holiday Village Resort and Spa,Goa"
+                android:layout_margin="10dp"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/hoteladdr"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/hotelName"
+                android:text="Candolim"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/hotellocationdetails"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/hoteladdr"
+                android:text="Location : Located on Sinquerim Beach and overlooking the Arabian Sea, Taj Holiday Village Resort and Spa, Goa is an hour's drive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:id="@+id/seperator"
+                android:layout_below="@+id/hotellocationdetails"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="#c0c0c0"/>
+            <TextView
+                android:id="@+id/hotelAmneties"
+                android:text="Amneties :"
+                android:textStyle="bold"
+                android:layout_below="@id/seperator"
+                android:layout_margin="10dp"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/itemsAmneties"
+                android:layout_margin="10dp"
+                android:layout_below="@id/hotelAmneties"
+                android:text="Free Wifi, Swimming Pool, Bar, Airport Shuttle, Family/Child Friendly, Fitness Center, Indoor Recreation Facilities, Internet/Wifi, Room Service, Spa,Travel and Transfers "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:id="@+id/second_seperator"
+                android:layout_below="@+id/itemsAmneties"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="#c0c0c0"/>
+            <TextView
+                android:id="@+id/hotelOverview"
+                android:layout_margin="10dp"
+                android:layout_below="@id/second_seperator"
+                android:text="Hotel Overview :"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/hoteloverviewdetails"
+                android:layout_margin="10dp"
+                android:text="Location: "
+                android:layout_below="@+id/hotelOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/hoteloverviewdetails2"
+                android:layout_margin="10dp"
+                android:text="Room Amneties: "
+                android:layout_below="@+id/hoteloverviewdetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/hoteloverviewdetails3"
+                android:layout_margin="10dp"
+                android:text="Hotel Facilities: "
+                android:layout_below="@+id/hoteloverviewdetails2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/hoteloverviewdetails4"
+                android:layout_margin="10dp"
+                android:text="Dining: "
+                android:layout_below="@+id/hoteloverviewdetails3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:id="@+id/third_seperator"
+                android:layout_below="@+id/hoteloverviewdetails4"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="#c0c0c0"/>
+            <TextView
+                android:id="@+id/hotelReviews"
+                android:layout_margin="10dp"
+                android:text="Reviews and Ratings"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_below="@+id/third_seperator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/rating"
+                android:layout_margin="10dp"
+                android:text="4.6"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#001aff"
+                android:layout_below="@+id/hotelReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/fixedLayout"
+        android:layout_below="@+id/scroll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="9">
+
+        <TextView
+            android:id="@+id/hotelPrice"
+            android:layout_margin="5dp"
+            android:text="50$ per room per night"
+            android:textSize="20sp"
+            android:layout_weight="6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/hotelBook"
+            android:layout_margin="5dp"
+            android:layout_weight="3"
+            android:background="#ff00"
+            android:textSize="15sp"
+            android:text="select hotel"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

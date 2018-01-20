@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/thdr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Coupon List Header"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/thdr"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="21dp"
+            android:text="Coupon NAME" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView12"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_marginStart="42dp"
+        android:layout_toEndOf="@+id/textView18"
+        android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView12"
+            android:layout_below="@+id/textView12"
+            android:layout_marginTop="19dp"
+            android:text="Coupon Description" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView13"
+            android:layout_alignTop="@+id/textView14"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView14"
+            android:layout_below="@+id/textView14"
+            android:layout_marginTop="17dp"
+            android:text="Coupon Status" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView16"
+            android:layout_alignEnd="@+id/textView15"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView16"
+            android:layout_below="@+id/textView16"
+            android:layout_marginTop="17dp"
+            android:text="Coupom Validity" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView18"
+            android:layout_alignEnd="@+id/textView17"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView18"
+            android:layout_below="@+id/textView18"
+            android:layout_marginTop="17dp"
+            android:text="Coupon Value (%)" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView20"
+            android:layout_alignEnd="@+id/textView19"
+            android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView20"
+        android:layout_below="@+id/textView20"
+        android:layout_marginTop="17dp"
+        android:text="Coupon Category " />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView22"
+        android:layout_alignEnd="@+id/textView21"
+        android:text="TextView" />
+    </RelativeLayout>
+
