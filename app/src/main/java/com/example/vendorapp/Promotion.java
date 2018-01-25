@@ -39,6 +39,7 @@ public class Promotion extends AppCompatActivity {
             public void onMenuTabSelected(int menuItemId) {
                 if (menuItemId==R.id.tab_account){
                     Toast.makeText(getApplicationContext(),"Accounts",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Promotion.this,VendorAccount.class));
                 } else if (menuItemId==R.id.tab_details){
                     Toast.makeText(getApplicationContext(),"Customer Details",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),ShowCustomer.class));
