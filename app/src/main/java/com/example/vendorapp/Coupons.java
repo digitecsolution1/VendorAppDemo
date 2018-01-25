@@ -14,14 +14,13 @@ import com.roughike.bottombar.OnMenuTabClickListener;
 public class Coupons extends AppCompatActivity {
 
     private BottomBar bottomBar;
-    private Button createnew,cdetails;
+    private Button createnew;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coupons_creation);
 
         createnew=(Button)findViewById(R.id.createCoup);
-        cdetails=(Button)findViewById(R.id.coupdets);
 
         bottomBar=BottomBar.attach(this,savedInstanceState);
         bottomBar.setItems(R.menu.bottombars_menu);
@@ -30,10 +29,13 @@ public class Coupons extends AppCompatActivity {
             public void onMenuTabSelected(int menuItemId) {
                 if (menuItemId==R.id.tab_account){
                     Toast.makeText(getApplicationContext(),"Accounts",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Coupons.this,VendorAccount.class));
                 } else if (menuItemId==R.id.tab_details){
                     Toast.makeText(getApplicationContext(),"Customer Details",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(),ShowCustomer.class));
                 } else if (menuItemId==R.id.tab_coupons) {
                     Toast.makeText(getApplicationContext(),"Coupons",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Coupons.this,ShowCoupons.class));
                 }
             }
 
@@ -56,13 +58,6 @@ public class Coupons extends AppCompatActivity {
             }
         });
 
-        cdetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Details",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Coupons.this,ShowCoupons.class));
-            }
-        });
 
     }
     @Override

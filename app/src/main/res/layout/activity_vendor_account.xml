@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vendorapp.VendorAccount">
+
+    <ImageView
+        android:id="@+id/displaypicture"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_width="100dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_height="100dp" />
+    <EditText
+        android:id="@+id/vendorname"
+        android:ems="15"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/displaypicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Name"/>
+    <EditText
+        android:id="@+id/vendoradd1"
+        android:ems="15"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/vendorname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Address Line 1"/>
+    <EditText
+        android:id="@+id/vendoradd2"
+        android:ems="15"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/vendoradd1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Address Line 2"/>
+    <EditText
+        android:id="@+id/vendorphno"
+        android:ems="15"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/vendoradd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"/>
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:layout_below="@+id/vendorphno"
+        android:layout_marginTop="15dp">
+
+        <Button
+            android:id="@+id/image1"
+            android:text="Image"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/image2"
+            android:text="Image"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/image3"
+            android:text="Image"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/image4"
+            android:text="Image"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif"/>
+
+
+</RelativeLayout>

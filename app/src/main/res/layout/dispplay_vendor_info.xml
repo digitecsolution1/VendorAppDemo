@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/displaypicture"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_marginTop="5dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_below="@+id/displaypicture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TableRow
+            android:padding="5dip">
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Name : "
+                android:layout_column="1"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/displayName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="TextView"
+                android:textSize="20sp"/>
+        </TableRow>
+
+        <TableRow
+            android:padding="5dip">
+
+            <TextView
+                android:id="@+id/phoneTextView"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_column="1"
+                android:text="Phone : "
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/displayPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_column="2"
+                android:textSize="20sp"/>
+        </TableRow>
+
+        <TableRow
+            android:padding="5dip">
+
+            <TextView
+                android:id="@+id/addTextView"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_column="1"
+                android:text="Address : "
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/displayadd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_column="2"
+                android:text="TextView"
+                android:textSize="20sp"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:layout_below="@+id/table"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/displaypicture1"
+            android:layout_weight="5"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_below="@+id/table"
+            android:layout_marginTop="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+        <ImageView
+            android:id="@+id/displaypicture2"
+            android:layout_weight="5"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_below="@+id/table"
+            android:layout_marginTop="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:layout_below="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/displaypicture3"
+            android:layout_weight="5"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_below="@+id/table"
+            android:layout_marginTop="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+        <ImageView
+            android:id="@+id/displaypicture4"
+            android:layout_weight="5"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_below="@+id/table"
+            android:layout_marginTop="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+</RelativeLayout>
