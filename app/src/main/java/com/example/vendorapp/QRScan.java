@@ -37,10 +37,11 @@ public class QRScan extends AppCompatActivity {
         setContentView(R.layout.activity_qrscan);
         Intent intent=getIntent();
         String usr=intent.getStringExtra("user");
-        Toast.makeText(getApplicationContext(),"Welcome..  "+usr,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"Welcome..  "+usr,Toast.LENGTH_SHORT).show();
 
        // configure_button();
 
+        Toast.makeText(getApplicationContext(),"QRScan called",Toast.LENGTH_LONG).show();
         cameraView = (SurfaceView) findViewById(R.id.camera_view);
         barcodeInfo = (TextView) findViewById(R.id.code_info);
 

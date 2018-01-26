@@ -82,13 +82,12 @@
 
     <Button
         android:id="@+id/saveButton"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/container"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimary"
         android:text="Save"
-        android:textColor="@color/white"
+        android:textColor="#ffffff"
         android:fontFamily="sans-serif"/>
 
 

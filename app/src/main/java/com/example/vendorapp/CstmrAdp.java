@@ -35,20 +35,14 @@ public class CstmrAdp extends ArrayAdapter<Customer> {
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.customer_list, parent, false);
         }
 
-
-
         TextView cstmrNm = (TextView) convertView.findViewById(R.id.textView5);
         TextView phn = (TextView) convertView.findViewById(R.id.textView7);
         TextView city = (TextView) convertView.findViewById(R.id.textView9);
 
-
-
         Customer shp=shpsv.get(position);
 
-
-
         cstmrNm.setText(shp.getName());
-       phn.setText(shp.getPhone());
+        phn.setText(shp.getPhone());
         city.setText(shp.getCity());
 
         return convertView;

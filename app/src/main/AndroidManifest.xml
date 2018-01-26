@@ -39,16 +39,14 @@
         <activity
             android:name=".QRScan"
             android:theme="@style/AppThemeNoBar" />
-        <activity android:name=".ShowCoupons"></activity>
-        <activity android:name=".qrinfo"></activity>
+        <activity android:name=".ShowCoupons" />
+        <activity android:name=".qrinfo" />
         <activity
             android:name=".ShowCustomer"
             android:theme="@style/AppThemeNoBar" />
         <activity
             android:name=".VendorAccount"
-            android:theme="@style/AppThemeNoBar">
-
-        </activity>
+            android:theme="@style/AppThemeNoBar"></activity>
     </application>
 
 </manifest>

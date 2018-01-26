@@ -6,21 +6,19 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnMenuTabClickListener;
-
 public class Promotion extends AppCompatActivity {
 
-    private BottomBar bottomBar;
 
     private Button coupons,scanqr;
 
@@ -29,36 +27,13 @@ public class Promotion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.promotion);
 
+        //Toast.makeText(getApplicationContext(),"Promotion called",Toast.LENGTH_LONG).show();
+
         coupons=(Button)findViewById(R.id.coupons);
         scanqr=(Button)findViewById(R.id.scanqr);
 
-        bottomBar=BottomBar.attach(this,savedInstanceState);
-        bottomBar.setItems(R.menu.bottombars_menu);
-        bottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
-            @Override
-            public void onMenuTabSelected(int menuItemId) {
-                if (menuItemId==R.id.tab_account){
-                    Toast.makeText(getApplicationContext(),"Accounts",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Promotion.this,VendorAccount.class));
-                } else if (menuItemId==R.id.tab_details){
-                    Toast.makeText(getApplicationContext(),"Customer Details",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(),ShowCustomer.class));
-                } else if (menuItemId==R.id.tab_coupons) {
-                    Toast.makeText(getApplicationContext(),"Coupons",Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onMenuTabReSelected(int menuItemId) {
-
-            }
-        });
-
-        // Setting colors for different tabs when there's more than three of them.
-        // You can set colors for tabs in three different ways as shown below.
-        bottomBar.mapColorForTab(0, ContextCompat.getColor(this, R.color.colorAccent));
-        bottomBar.mapColorForTab(1, 0xFF5D4037);
-        bottomBar.mapColorForTab(2, "#7B1FA2");
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         coupons.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,21 +47,36 @@ public class Promotion extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"QR scan",Toast.LENGTH_SHORT).show();
                 configure_button();
-
-
             }
         });
 
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()){
+                case R.id.tab_account:
+                    Toast.makeText(getApplicationContext(),
+                            "Accounts selected",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(Promotion.this,VendorAccount.class));
+                    return true;
+                case R.id.tab_coupons:
+                    Toast.makeText(getApplicationContext(),
+                            "Coupons selected",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(Promotion.this,ShowCoupons.class));
+                    return true;
+                case R.id.tab_details:
+                    Toast.makeText(getApplicationContext(),
+                            "Customer selected",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(Promotion.this,ShowCustomer.class));
+                    return true;
+            }
+            return false;
+        }
+    };
 
-        // Necessary to restore the BottomBar's state, otherwise we would
-        // lose the current tab on orientation change.
-        bottomBar.onSaveInstanceState(outState);
-    }
 
     private void configure_button() {
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) !=

@@ -29,7 +29,7 @@ public class ShowCoupons extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_coupons);
 
-
+        //Toast.makeText(getApplicationContext(),"ShowCoupons called",Toast.LENGTH_LONG).show();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference().child("VendorDtl").child("vendor1").child("Coupons");
@@ -66,7 +66,7 @@ public class ShowCoupons extends AppCompatActivity {
                     String cctg=coups.getSc_catg();
                     String cval=coups.getSc_percentage();
                    // Toast.makeText(getApplicationContext(),"Shop name "+snm+"\n"+"Shop type "+typ+"\n"+"Shop owner "+onm,Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(),"Coupon Nmae : "+cnm,Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"Coupon Nmae : "+cnm,Toast.LENGTH_SHORT).show();
 
 
                 }

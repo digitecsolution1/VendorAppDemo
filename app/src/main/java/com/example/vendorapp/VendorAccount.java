@@ -27,6 +27,8 @@ public class VendorAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_account);
 
+        //Toast.makeText(getApplicationContext(), "VendorAccount called",Toast.LENGTH_LONG).show();
+
         displayPic=(ImageView)findViewById(R.id.displaypicture);
         image1=(Button) findViewById(R.id.image1);
         image2=(Button) findViewById(R.id.image2);
