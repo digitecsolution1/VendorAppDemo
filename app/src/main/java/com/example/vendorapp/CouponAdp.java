@@ -37,8 +37,6 @@ public class CouponAdp extends ArrayAdapter<CouponDetails> {
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.item_list, parent, false);
         }
 
-
-
         TextView coupNm = (TextView) convertView.findViewById(R.id.textView13);
         TextView coupDesc = (TextView) convertView.findViewById(R.id.textView15);
         TextView coupSts = (TextView) convertView.findViewById(R.id.textView17);
@@ -46,11 +44,7 @@ public class CouponAdp extends ArrayAdapter<CouponDetails> {
         TextView coupValue = (TextView) convertView.findViewById(R.id.textView21);
         TextView coupCatg = (TextView) convertView.findViewById(R.id.textView23);
 
-
-
         CouponDetails shp=shpsv.get(position);
-
-
 
         coupNm.setText(shp.getScnm());
         coupDesc.setText(shp.getScdesc());

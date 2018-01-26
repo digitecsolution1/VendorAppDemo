@@ -13,9 +13,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnMenuTabClickListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +25,7 @@ public class ShowCustomer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_customer);
 
-
-
+       // Toast.makeText(getApplicationContext(),"ShowCustomer called",Toast.LENGTH_LONG).show();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference().child("VendorDtl").child("vendor1").child("CUSTOMERS");

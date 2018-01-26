@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">VendorApp</string>
+    <string name="title_accounts">Account</string>
+    <string name="title_copupons">Coupons</string>
+    <string name="title_customerdets">Customer Details</string>
+
 </resources>

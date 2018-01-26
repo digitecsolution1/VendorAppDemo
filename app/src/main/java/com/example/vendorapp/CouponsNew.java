@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
@@ -26,6 +28,10 @@ public class CouponsNew extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coupons_new);
+
+        Toast.makeText(getApplicationContext(),
+                "CouponsNew called",Toast.LENGTH_LONG).show();
+
         context = getApplicationContext();
         cval_from = (EditText) findViewById(R.id.validity1);
         cval_to = (EditText) findViewById(R.id.validity2);
@@ -36,7 +42,6 @@ public class CouponsNew extends AppCompatActivity {
                 showFromDatePickerDailog(v);
             }
         });
-
         cval_to.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +59,6 @@ public class CouponsNew extends AppCompatActivity {
         DialogFragment newFragment = new ToDatePickerFragment();
         newFragment.show(getFragmentManager(), "datePicker");
     }
-
 
     public void saveCoupon(View view) {
 
@@ -79,7 +83,6 @@ public class CouponsNew extends AppCompatActivity {
         ref.child("vendor1").child("Coupons").child(scnm).child("CouponValue").setValue(sc_percentage);
         ref.child("vendor1").child("Coupons").child(scnm).child("CouponCategory").setValue(sc_catg);
 */
-
         CouponDetails coupDtls = new CouponDetails(scnm, scdesc, scsts, scval_from, scval_to, sc_percentage, sc_catg);
         ref.child("vendor1").child("Coupons").child(scnm).setValue(coupDtls);
 
