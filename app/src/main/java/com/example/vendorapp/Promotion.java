@@ -11,18 +11,36 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Promotion extends AppCompatActivity {
 
     private BottomBar bottomBar;
 
-    private Button coupons,scanqr;
+    private Button coupons,scanqr,ins_info,upd_info;
+
+    DatabaseReference myRef,ref;
+    ListView cstmrlistVw;
+
+    TextView t1,t2,t3,t4,t5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +50,19 @@ public class Promotion extends AppCompatActivity {
         coupons=(Button)findViewById(R.id.coupons);
         scanqr=(Button)findViewById(R.id.scanqr);
 
+        ins_info=findViewById(R.id.saveButton);
+        upd_info=findViewById(R.id.updButton);
+
+        final RelativeLayout rlot=findViewById(R.id.account_dtl);
+        final LinearLayout lot=findViewById(R.id.prmt);
+        final LinearLayout cust_lot=findViewById(R.id.cust_dtl);
+
+        t1=findViewById(R.id.vendorname);
+        t2=findViewById(R.id.shpnm);
+        t3=findViewById(R.id.shptyp);
+        t4=findViewById(R.id.vendoradd);
+        t5=findViewById(R.id.vendorphno);
+
         bottomBar=BottomBar.attach(this,savedInstanceState);
         bottomBar.setItems(R.menu.bottombars_menu);
         bottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
@@ -39,12 +70,21 @@ public class Promotion extends AppCompatActivity {
             public void onMenuTabSelected(int menuItemId) {
                 if (menuItemId==R.id.tab_account){
                     Toast.makeText(getApplicationContext(),"Accounts",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Promotion.this,VendorAccount.class));
+                    //startActivity(new Intent(Promotion.this,VendorAccount.class));
+                    lot.setVisibility(View.INVISIBLE);
+                    cust_lot.setVisibility(View.INVISIBLE);
+                    rlot.setVisibility(View.VISIBLE);
                 } else if (menuItemId==R.id.tab_details){
                     Toast.makeText(getApplicationContext(),"Customer Details",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(),ShowCustomer.class));
+                    //startActivity(new Intent(getApplicationContext(),ShowCustomer.class));
+                    lot.setVisibility(View.INVISIBLE);
+                    rlot.setVisibility(View.INVISIBLE);
+                    cust_lot.setVisibility(View.VISIBLE);
                 } else if (menuItemId==R.id.tab_coupons) {
                     Toast.makeText(getApplicationContext(),"Coupons",Toast.LENGTH_SHORT).show();
+                    lot.setVisibility(View.VISIBLE);
+                    rlot.setVisibility(View.INVISIBLE);
+                    cust_lot.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -77,7 +117,102 @@ public class Promotion extends AppCompatActivity {
             }
         });
 
+        ins_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Promotion.this,VendorAccount.class));
+            }
+        });
+
+        upd_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"WORK IN PROGRESS",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Promotion.this,updateVendorInfo.class));
+            }
+        });
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        myRef = database.getReference().child("VendorDtl").child("vendor1").child("CUSTOMERS");
+//HERE REPLACE "vendor1" WITH CURRENT VENDOR ID*************************************
+        cstmrlistVw=(ListView)findViewById(R.id.cstmrListView);
+
+        ref=database.getReference().child("VendorDtl").child("vendor1");
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                 try {
+                     ShopDtl sdtl = ds.getValue(ShopDtl.class);
+
+                     t1.setText(sdtl.getVendorname());
+                     t2.setText(sdtl.getShopnm());
+                     t3.setText(sdtl.getShoptyp());
+                     t4.setText(sdtl.getVendoraddr());
+                     t5.setText(sdtl.getVendorphno());
+
+                     ins_info.setVisibility(View.INVISIBLE);
+                     upd_info.setVisibility(View.VISIBLE);
+                 }
+                 catch (Exception e){
+                     ins_info.setVisibility(View.VISIBLE);
+                     upd_info.setVisibility(View.INVISIBLE);
+                 }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        //attaching value event listener
+        myRef.addValueEventListener(new ValueEventListener() {
+            List<Customer> crlist = new ArrayList<>();
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //clearing the previous artist list
+                crlist.clear();
+
+                //iterating through all the nodes
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Log.i("valueeventDb","tHIS IS CALLED");
+                    //getting artist
+                    Customer coups= ds.getValue(Customer.class);
+                    //adding artist to the list
+                    crlist.add(coups);
+
+                    Log.i("InsideValueDataChange",coups.getName());
+
+                }
+
+                //creating adapter
+                CstmrAdp cpnAdp = new CstmrAdp(Promotion.this, crlist);
+                //attaching adapter to the listview
+                cstmrlistVw.setAdapter(cpnAdp);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(),"EROrrr Fetching value ... ",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+    }
+
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

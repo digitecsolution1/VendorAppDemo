@@ -14,13 +14,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class VendorAccount extends AppCompatActivity {
 
     private ImageView displayPic;
-    private EditText name,addr1,addr2,phno;
+    private EditText name,addr,shpnm,shptyp,phno;
     private Button save;
-    private Button image1,image2,image3,image4;
-    String vendorname,vendoraddr1,vendoraddr2,vendorphno;
+    private Button image1,image2,image3;
+    String vendorname,vendoraddr,shopnm,shoptyp,vendorphno;
+    FirebaseDatabase fdb;
+    DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,27 +36,36 @@ public class VendorAccount extends AppCompatActivity {
         image1=(Button) findViewById(R.id.image1);
         image2=(Button) findViewById(R.id.image2);
         image3=(Button) findViewById(R.id.image3);
-        image4=(Button) findViewById(R.id.image4);
+
         save=(Button)findViewById(R.id.saveButton);
         name=(EditText)findViewById(R.id.vendorname);
-        addr1=(EditText)findViewById(R.id.vendoradd1);
-        addr2=(EditText)findViewById(R.id.vendoradd2);
+        shpnm=(EditText)findViewById(R.id.shpnm);
+        shptyp=(EditText)findViewById(R.id.shptyp);
+        addr=(EditText)findViewById(R.id.vendoradd);
         phno=(EditText)findViewById(R.id.vendorphno);
 
         displayPic.setOnClickListener(choosePic);
         image1.setOnClickListener(choosePic);
         image2.setOnClickListener(choosePic);
         image3.setOnClickListener(choosePic);
-        image4.setOnClickListener(choosePic);
+
+
+        ref=FirebaseDatabase.getInstance().getReference().child("VendorDtl").child("vendor1");
+        //************replace vendor1 with signed in vendor id
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Saved in database",Toast.LENGTH_SHORT).show();
+
                 vendorname=name.getText().toString();
-                vendoraddr1=addr1.getText().toString();
-                vendoraddr2=addr2.getText().toString();
+                vendoraddr=addr.getText().toString();
+                shopnm=shpnm.getText().toString();
+                shoptyp=shptyp.getText().toString();
                 vendorphno=phno.getText().toString();
+
+                ShopDtl sdtl=new ShopDtl(vendorname,shopnm,shoptyp,vendoraddr,vendorphno);
+                ref.child("ShopDtl").setValue(sdtl);
+                Toast.makeText(getApplicationContext(),"Saved in database",Toast.LENGTH_SHORT).show();
             }
         });
     }

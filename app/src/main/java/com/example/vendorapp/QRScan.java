@@ -162,6 +162,7 @@ public class QRScan extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
-        startActivity(new Intent(getApplicationContext(),Promotion.class));
+        //startActivity(new Intent(getApplicationContext(),Promotion.class));
+        super.onBackPressed();
     }
 }

@@ -22,7 +22,14 @@
             android:text="Create New"
             android:textColor="@color/white"
             android:fontFamily="sans-serif"/>
-
+        <Button
+            android:id="@+id/coupdets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Coupon Details"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif"/>
     </LinearLayout>
 
 
