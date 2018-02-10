@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -59,6 +60,8 @@ public class Promotion extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     ImageView i1,i2,i3;
+
+    ShimmerFrameLayout container;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -123,6 +126,10 @@ public class Promotion extends AppCompatActivity {
         i1=findViewById(R.id.displaypicture);
         i2=findViewById(R.id.displaypicture2);
         i3=findViewById(R.id.displaypicture3);
+
+       container =
+                (ShimmerFrameLayout) findViewById(R.id.shimmer_view_container);
+        container.startShimmerAnimation();
 /*
         bottomBar=BottomBar.attach(this,savedInstanceState);
         bottomBar.setItems(R.menu.bottombars_menu);
@@ -291,6 +298,7 @@ public class Promotion extends AppCompatActivity {
 
 
                      pbar.setVisibility(View.INVISIBLE);
+                     container.stopShimmerAnimation();
                   //   ins_info.setVisibility(View.INVISIBLE);
                    //  upd_info.setVisibility(View.VISIBLE);
                  }
