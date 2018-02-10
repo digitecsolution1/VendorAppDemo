@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
 
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/vnam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/vnam"
+        android:layout_above="@+id/shpnm"
+        android:layout_alignParentStart="true"
         android:text="Owner Name : "
-        android:textSize="25sp"/>
+        android:textSize="25sp" />
 
     <EditText
         android:id="@+id/vendorname"
@@ -20,30 +26,68 @@
         android:layout_height="wrap_content"
         android:hint="Name"/>
 
+    <TextView
+        android:id="@+id/snam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/shptyp"
+        android:layout_alignParentStart="true"
+        android:text="Shop Name   : "
+        android:textSize="25sp" />
+
     <EditText
         android:id="@+id/shpnm"
         android:ems="15"
+        android:layout_toRightOf="@id/snam"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/vendorname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Shop name"/>
+
+    <TextView
+        android:id="@+id/styp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/vendoradd"
+        android:layout_alignParentStart="true"
+        android:text="Shop Type     : "
+        android:textSize="25sp" />
     <EditText
         android:id="@+id/shptyp"
         android:ems="15"
+        android:layout_toRightOf="@id/styp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/shpnm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Shop Type"/>
-    <EditText
-        android:id="@+id/vendoradd"
-        android:ems="15"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/shptyp"
+
+    <TextView
+        android:id="@+id/addr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Address"/>
+        android:layout_above="@+id/vendorphno"
+        android:layout_alignParentStart="true"
+        android:text="Shop Address : "
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/vendoradd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/shptyp"
+        android:ems="15"
+        android:hint="Address"
+        android:layout_toRightOf="@id/addr"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phn"
+        android:text="Phone No.       : "
+        android:textSize="25sp"
+        android:layout_below="@id/addr"/>
     <EditText
         android:id="@+id/vendorphno"
         android:ems="15"
@@ -51,11 +95,78 @@
         android:layout_below="@+id/vendoradd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Phone Number"/>
+        android:hint="Phone Number"
+        android:layout_toRightOf="@id/phn"
+        android:inputType="phone"/>
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/vendorphno"
+        android:layout_marginTop="15dp">
+
+        <Button
+            android:id="@+id/image1"
+            android:text="Image"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="pick1"/>
+        <Button
+            android:id="@+id/image2"
+            android:text="Image"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="pick2"/>
+        <Button
+            android:id="@+id/image3"
+            android:text="Image"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="pick3"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/piclot"
+        android:layout_below="@id/container"
+        android:orientation="horizontal">
+        <ImageView
+            android:padding="5dp"
+            android:id="@+id/imageView1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_alignStart="@+id/vendorphno"
+            android:layout_below="@+id/container"
+            app:srcCompat="@drawable/hotel" />
+        <ImageView
+            android:padding="5dp"
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_alignStart="@+id/vendorphno"
+            android:layout_below="@+id/container"
+            app:srcCompat="@drawable/hotel" />
+        <ImageView
+            android:padding="5dp"
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_alignStart="@+id/vendorphno"
+            android:layout_below="@+id/container"
+            app:srcCompat="@drawable/hotel" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/updinfo"
-        android:layout_below="@id/vendorphno"
+        android:layout_below="@id/piclot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimary"
@@ -63,4 +174,15 @@
         android:textColor="@color/white"
         android:fontFamily="sans-serif" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="invisible"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/styp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
+
 </RelativeLayout>
+</ScrollView>

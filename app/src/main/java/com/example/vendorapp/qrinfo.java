@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,12 +48,17 @@ public class qrinfo extends AppCompatActivity {
         Customer cst=new Customer(words[0],words[1],words[2]);
         ref.child("vendor1").child("CUSTOMERS").child(words[0]).setValue(cst);
 
+        Toast.makeText(getApplicationContext(),"Customer saved",Toast.LENGTH_SHORT).show();
+        Intent intent=new Intent(getApplicationContext(),Promotion.class);
+        intent.putExtra("ID",2);
+        startActivity(intent);
+
     }
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-        startActivity(new Intent(getApplicationContext(),QRScan.class));
+        Intent intent=new Intent(getApplicationContext(),Promotion.class);
+        intent.putExtra("ID",2);
+        startActivity(intent);
     }
 }

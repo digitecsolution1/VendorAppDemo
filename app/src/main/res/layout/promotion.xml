@@ -4,161 +4,280 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.vendorapp.Promotion">
-<!--Accounts section -->
+    tools:context="com.example.vendorapp.Promotion"
+    android:id="@+id/mainrlot">
 
-    <RelativeLayout
-        android:id="@+id/account_dtl"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible">
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="?android:attr/windowBackground"/>
 
-        <ImageView
-            android:id="@+id/displaypicture"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignStart="@+id/vendorname"
-            android:layout_marginTop="20dp"
-            android:src="@mipmap/ic_launcher_round" />
-        <TextView
-            android:id="@+id/vendorname"
-            android:ems="15"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/displaypicture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Name"/>
-        <TextView
-            android:id="@+id/shpnm"
-            android:ems="15"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/vendorname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Shop Name"/>
-        <TextView
-            android:id="@+id/shptyp"
-            android:ems="15"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/shpnm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Shop Type"/>
-        <TextView
-            android:id="@+id/vendoradd"
-            android:ems="15"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/shptyp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Address "/>
-        <TextView
-            android:id="@+id/vendorphno"
-            android:ems="15"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/vendoradd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Phone Number"/>
-        <LinearLayout
-            android:id="@+id/container"
+    <!--Accounts section -->
+
+        <RelativeLayout
+            android:id="@+id/account_dtl"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+           >
+
+            <ImageView
+                android:id="@+id/displaypicture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/ic_launcher_round" />
+            <ImageView
+                android:id="@+id/displaypicture2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_toEndOf="@id/displaypicture"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/ic_launcher_round" />
+            <ImageView
+                android:id="@+id/displaypicture3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_toEndOf="@id/displaypicture2"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/ic_launcher_round" />
+
+            <TextView
+                android:id="@+id/vnam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/shpnm"
+
+                android:text="Owner Name : "
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/vendorname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/displaypicture"
+                android:layout_toRightOf="@id/vnam"
+                android:ems="15"
+                android:hint="Name"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/snam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/vnam"
+                android:text="Shop Name : "
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/shpnm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vendorname"
+                android:layout_toRightOf="@id/snam"
+                android:ems="15"
+                android:hint="Shop Name"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/styp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/vendoradd"
+                android:layout_alignParentStart="true"
+                android:text="Shop Type     : "
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/shptyp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shpnm"
+                android:layout_toRightOf="@id/styp"
+                android:ems="15"
+                android:hint="Shop Type"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/addr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/vendorphno"
+                android:layout_alignParentStart="true"
+                android:text="Shop Address : "
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/vendoradd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shptyp"
+                android:layout_toRightOf="@id/addr"
+                android:ems="15"
+                android:hint="Address "
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/phn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addr"
+                android:text="Phone No.       : "
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/vendorphno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vendoradd"
+                android:layout_toRightOf="@id/phn"
+                android:ems="15"
+                android:hint="Phone Number"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vendorphno"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/saveButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="sans-serif"
+                    android:text="Insert Info"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/updButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="sans-serif"
+                    android:text="Update Info"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_below="@id/container"
+                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:fontFamily="sans-serif"
+                android:text="Log out"
+                android:layout_centerInParent="true"
+                android:onClick="Logout"
+                android:textColor="@color/white" />
+            <ProgressBar
+                android:id="@+id/progressBar"
+
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/styp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp" />
+
+        </RelativeLayout>
+
+
+        <!--end of Accounts section -->
+
+        <!--CustomerDetails section -->
+
+        <LinearLayout
+            android:id="@+id/cust_dtl"
+            android:layout_above="@id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Customer List"
+                android:textColor="#000000"
+                android:textSize="30sp" />
+
+
+                <ListView
+                    android:id="@+id/cstmrListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:divider="@android:color/transparent"
+                    android:stackFromBottom="false"
+                    android:transcriptMode="alwaysScroll"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="24dp"
+                    tools:listitem="@layout/customer_list" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="end of result"
+                    android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <!--end of CustomerDetails section -->
+        <LinearLayout
+            android:id="@+id/prmt"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="8"
-            android:layout_below="@+id/vendorphno"
-            android:layout_marginTop="15dp">
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
             <Button
-                android:id="@+id/saveButton"
-                android:layout_marginTop="50dp"
-                android:layout_below="@id/container"
-                android:layout_width="wrap_content"
+                android:id="@+id/coupons"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="Insert Info"
-                android:textColor="@color/white"
-                android:fontFamily="sans-serif"/>
+                android:fontFamily="sans-serif"
+                android:text="Coupons"
+                android:textColor="@color/white" />
+
             <Button
-                android:id="@+id/updButton"
-                android:layout_marginTop="50dp"
-                android:layout_below="@id/container"
-                android:layout_width="wrap_content"
+                android:id="@+id/scanqr"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="Update Info"
-                android:textColor="@color/white"
-                android:fontFamily="sans-serif"/>
+                android:fontFamily="sans-serif"
+                android:text="Scan QR"
+                android:textColor="@color/white" />
         </LinearLayout>
 
 
 
-
-    </RelativeLayout>
-
-
-
-
-
-
-    <!--end of Accounts section -->
-
-    <!--CustomerDetails section -->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/cust_dtl"
-        android:visibility="invisible">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="Customer List"
-            android:textColor="#000000"
-            android:gravity="center"/>
-
-        <ListView
-            android:id="@+id/cstmrListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/linearLayout"
-            android:divider="@android:color/transparent"
-            android:stackFromBottom="true"
-            android:transcriptMode="alwaysScroll"
-            tools:listitem="@layout/customer_list" />
-
-    </LinearLayout>
-
-    <!--end of CustomerDetails section -->
-    <LinearLayout
-        android:id="@+id/prmt"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:visibility="invisible">
-
-        <Button
-            android:id="@+id/coupons"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Coupons"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif"/>
-        <Button
-            android:id="@+id/scanqr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Scan QR"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif"/>
-    </LinearLayout>
 
 
 </RelativeLayout>

@@ -39,4 +39,10 @@ public class Coupons extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),Promotion.class);
+        intent.putExtra("ID",2);
+        startActivity(intent);
+    }
 }

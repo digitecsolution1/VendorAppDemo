@@ -4,11 +4,14 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
@@ -29,6 +32,8 @@ public class CouponsNew extends AppCompatActivity {
         context = getApplicationContext();
         cval_from = (EditText) findViewById(R.id.validity1);
         cval_to = (EditText) findViewById(R.id.validity2);
+
+        ref= FirebaseDatabase.getInstance().getReference().child("VendorDtl");
 
         cval_from.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,8 +85,17 @@ public class CouponsNew extends AppCompatActivity {
         ref.child("vendor1").child("Coupons").child(scnm).child("CouponCategory").setValue(sc_catg);
 */
 
+        scval_from="tst1";scval_to="tst2";
         CouponDetails coupDtls = new CouponDetails(scnm, scdesc, scsts, scval_from, scval_to, sc_percentage, sc_catg);
-        ref.child("vendor1").child("Coupons").child(scnm).setValue(coupDtls);
+       try {
+           ref.child("vendor1").child("Coupons").child(scnm).setValue(coupDtls);
+           Toast.makeText(getApplicationContext(),"Coupon saved successfully",Toast.LENGTH_SHORT).show();
+           startActivity(new Intent(getApplicationContext(),Coupons.class));
+       }
+       catch (Exception e){
+           Toast.makeText(getApplicationContext(),"Error saving couppon",Toast.LENGTH_SHORT).show();
+       }
+
 
     }
 

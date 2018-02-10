@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.vendorapp.VendorAccount">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/displaypicture"
@@ -14,26 +15,27 @@
         android:src="@mipmap/ic_launcher_round"
         android:layout_height="100dp" />
     <EditText
-        android:id="@+id/vendorname"
+        android:id="@+id/shpnm"
         android:ems="15"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/displaypicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Name"/>
+        android:hint="Shop name"/>
     <EditText
-        android:id="@+id/shpnm"
+        android:id="@+id/vendorname"
         android:ems="15"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/vendorname"
+        android:layout_below="@+id/shpnm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Shop name"/>
+        android:hint="Owner Name"/>
+
     <EditText
         android:id="@+id/shptyp"
         android:ems="15"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/shpnm"
+        android:layout_below="@+id/vendorname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Shop Type"/>
@@ -58,41 +60,92 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="8"
         android:layout_below="@+id/vendorphno"
         android:layout_marginTop="15dp">
 
         <Button
             android:id="@+id/image1"
             android:text="Image"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:onClick="pick1"/>
         <Button
             android:id="@+id/image2"
             android:text="Image"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:onClick="pick2"/>
         <Button
             android:id="@+id/image3"
             android:text="Image"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:onClick="pick3"/>
 
     </LinearLayout>
 
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:id="@+id/piclot"
+    android:layout_below="@id/container"
+    android:orientation="horizontal">
+    <ImageView
+        android:padding="5dp"
+        android:id="@+id/imageView1"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_alignStart="@+id/vendorphno"
+        android:layout_below="@+id/container"
+        app:srcCompat="@drawable/hotel" />
+    <ImageView
+        android:padding="5dp"
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_alignStart="@+id/vendorphno"
+        android:layout_below="@+id/container"
+        app:srcCompat="@drawable/hotel" />
+    <ImageView
+        android:padding="5dp"
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_alignStart="@+id/vendorphno"
+        android:layout_below="@+id/container"
+        app:srcCompat="@drawable/hotel" />
+</LinearLayout>
+
     <Button
         android:id="@+id/saveButton"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/piclot"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="sans-serif"
         android:text="Save"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif"/>
+        android:textColor="@color/white" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="invisible"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/vendoradd"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
+
+
+</ScrollView>
